@@ -8,4 +8,5 @@ client_key               "#{current_dir}/josuevidal.pem"
 validation_client_name   'vidalcorp-validator'
 validation_key           '#{current_dir}/vidalcorp-validator.pem'
 chef_server_url          "https://api.chef.io/organizations/vidalcorp"
-cookbook_path            ["#{current_dir}/../cookbooks"]
+cookbook_path            ["#{current_dir}/cheftdd/cookbooks"]
+knife[:azure_publish_settings_file] = "Windows Azure MSDN - 5_30_2018, 12_46_02 - credentials.publishsettings"
