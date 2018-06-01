@@ -1,16 +1,30 @@
 ---
 driver:
-  name: vagrant
+  name: azurerm
+
+driver_config:
+ subscription_id: 'a96705c9-bf6c-4e61-924d-e9298305874b'
+ location: 'South Central US'
+ machine_size: 'Standard_D1'
 
 provisioner:
   name: chef_solo
 
+verifier:
+ name: inspec
+
 platforms:
-  - name: ubuntu-14.04
-  - name: centos-7.2
+ - name: windows2012-r2
+ driver_config:
+ image_urn: MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest
+ transport:
+ name: winrm
+ - name: centos71
+ driver_config:
+ image_urn: OpenLogic:CentOS:7.1:latest
 
 suites:
-  - name: default
-    run_list:
-     - recipes[webserver::default]
-    attributes:
+ - name: default
+ run_list:
+ - recipe[httpd::default]
+ attributes:
