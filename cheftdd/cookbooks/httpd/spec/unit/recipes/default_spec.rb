@@ -34,5 +34,8 @@ describe 'httpd::default' do
     it 'installs apache2 package' do
       expect(chef_run).to install_package('apache2')
     end
+    it 'starts apache2 service' do
+      expect(chef_run).to start_service('apache2')
+    end
   end
 end
