@@ -14,7 +14,6 @@ describe 'httpd::default' do
       runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
       runner.converge(described_recipe)
     end
-
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
