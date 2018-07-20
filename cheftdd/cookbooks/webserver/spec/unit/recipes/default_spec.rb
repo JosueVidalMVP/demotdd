@@ -15,16 +15,17 @@ describe 'webserver::default' do
       runner.converge(described_recipe)
     end
 
-    #it 'converges successfully' do
-    #  expect { chef_run }.to_not raise_error
-    #end
-
-    it 'enables iis service with name W3WVC' do
-      expect(chef_run).to enable_service('iis').with(service_name: 'w3svc')
+    it 'converges successfully' do
+      expect { chef_run }.to_not raise_error
     end
 
-    #it 'starts iis service with name W3WVC' do
-    #  expect(chef_run).to start_service('iis').with(service_name: 'w3svc')
-    #end
+    it 'enables iis service with name W3WVC' do
+      expect(chef_run).to enable_service('iis').with(service_name: 'W3SVC')
+    end
+
+    it 'starts iis service with name W3WVC' do
+      expect(chef_run).to start_service('iis').with(service_name: 'W3SVC')
+    end
+
   end
 end
